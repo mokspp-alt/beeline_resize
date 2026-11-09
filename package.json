@@ -1,0 +1,28 @@
+{
+  "name": "beeline-resize",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "AI-ресайз макетов Figma под Web, App и баннеры на дизайн-системе Carnica",
+  "workspaces": [
+    "packages/shared",
+    "packages/plugin",
+    "packages/backend"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "vitest run",
+    "dev:backend": "npm run dev -w @beeline-resize/backend",
+    "dev:plugin": "npm run watch -w @beeline-resize/plugin"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "esbuild": "^0.28.2",
+    "typescript": "~5.9.3",
+    "vitest": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

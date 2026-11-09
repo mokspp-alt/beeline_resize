@@ -1,0 +1,20 @@
+{
+  "name": "@beeline-resize/backend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file-if-exists=../../.env src/index.ts",
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json && node build.mjs",
+    "start": "node dist/index.mjs"
+  },
+  "dependencies": {
+    "@beeline-resize/shared": "0.1.0",
+    "fastify": "^5.6.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.0"
+  }
+}

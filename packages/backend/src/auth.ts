@@ -12,7 +12,7 @@ function equal(a: string, b: string): boolean {
 /** Bearer-токен команды (spec llm-provider → Plugin authentication). */
 export function registerAuth(app: FastifyInstance, token: string) {
   app.addHook('onRequest', async (req, reply) => {
-    if (PUBLIC.has(req.routeOptions.url ?? req.url)) return;
+    if (req.method === 'OPTIONS' || PUBLIC.has(req.routeOptions.url ?? req.url)) return;
     const header = req.headers.authorization ?? '';
     const given = header.startsWith('Bearer ') ? header.slice(7) : '';
     if (!given || !equal(given, token)) {

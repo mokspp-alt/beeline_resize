@@ -14,7 +14,7 @@ FROM node:22-alpine
 WORKDIR /app
 ENV NODE_ENV=production
 COPY --from=build /repo/packages/backend/dist ./dist
-RUN npm install --omit=dev --no-save fastify@^5.6.0 zod@^4.1.0
+RUN npm install --omit=dev --no-save fastify@^5.6.0 zod@^4.1.0 @anthropic-ai/sdk@^1.6.0
 COPY config ./config
 ENV CONFIG_DIR=/app/config
 EXPOSE 8787

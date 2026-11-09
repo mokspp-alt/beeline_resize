@@ -8,6 +8,8 @@ import { createProvider } from './llm/factory.js';
 import { UserLimiter } from './llm/limits.js';
 import type { LlmProvider } from './llm/types.js';
 import { runAdaptation, type AdaptEvent } from './adapt/run.js';
+import { scanLibraries } from './ds/scan.js';
+import type { FetchLike } from './llm/types.js';
 
 export interface AppOptions {
   settings: Settings;
@@ -15,6 +17,8 @@ export interface AppOptions {
   logger?: boolean | { stream: NodeJS.WritableStream };
   /** null — без LLM; undefined — по конфигурации. */
   provider?: LlmProvider | null;
+  /** fetch для Figma REST API (тесты). */
+  figmaFetch?: FetchLike;
 }
 
 export const AdaptBodySchema = z.object({
@@ -108,6 +112,14 @@ export function buildApp(opts: AppOptions): FastifyInstance {
     } finally {
       reply.raw.end();
     }
+  });
+
+  /** Скан библиотек Carnica через REST API (spec design-system-integration → Design system mapping config). */
+  app.post('/ds/scan', async (_req, reply) => {
+    if (!settings.figmaToken) return reply.code(400).send({ error: 'no-figma-token', message: 'FIGMA_TOKEN не задан на бэкенде' });
+    const ds = await store.designSystem();
+    if (!ds) return reply.code(400).send({ error: 'no-config', message: 'нет config/design-system.json' });
+    return { libraries: await scanLibraries(ds, settings.figmaToken, opts.figmaFetch) };
   });
 
   return app;

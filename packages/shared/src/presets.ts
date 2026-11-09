@@ -45,14 +45,7 @@ export const PresetCatalogSchema = z.object({
 });
 export type PresetCatalog = z.infer<typeof PresetCatalogSchema>;
 
-export const GROUP_LABELS: Record<PresetGroup, string> = {
-  web: 'Web',
-  'app-ios': 'App iOS',
-  'app-android': 'App Android',
-  'banner-display': 'Баннеры',
-  'banner-social': 'Соцсети',
-  custom: 'Пользовательские',
-};
+export { GROUP_LABELS } from './labels.js';
 
 export function orientationOf(width: number, height: number | 'auto'): SizePreset['orientation'] {
   if (height === 'auto') return 'portrait';

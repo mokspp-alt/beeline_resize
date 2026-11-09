@@ -15,8 +15,19 @@ export const LibrarySchema = z.object({
   /** File key — для REST API на бэкенде. */
   fileKey: z.string().min(1),
   url: z.string().url().optional(),
+  /** Ключ любого опубликованного компонента библиотеки — для проверки, что библиотека доступна (из скана). */
+  probeComponentKey: z.string().optional(),
 });
 export type Library = z.infer<typeof LibrarySchema>;
+
+/** Текстовый стиль ДС (из скана typography) — для привязки нового кегля к стилю. */
+export const TextStyleTokenSchema = z.object({
+  key: z.string().min(1),
+  name: z.string().min(1),
+  fontSize: z.number().positive(),
+  fontFamily: z.string().optional(),
+});
+export type TextStyleToken = z.infer<typeof TextStyleTokenSchema>;
 
 const UiKitRoleSchema = z.enum(['ui-kit-app', 'ui-kit-web']);
 
@@ -86,6 +97,8 @@ export const DesignSystemConfigSchema = z.object({
   iconSizes: z.array(z.number().positive()).optional(),
   /** Шкала отступов из токенов sizes: значение → ключ переменной. */
   spacingTokens: z.record(z.string(), z.string()).optional(),
+  /** Текстовые стили typography. */
+  textStyles: z.array(TextStyleTokenSchema).optional(),
 });
 export type DesignSystemConfig = z.infer<typeof DesignSystemConfigSchema>;
 

@@ -10,7 +10,8 @@
     ".": "./src/index.ts",
     "./tree": "./src/tree.ts",
     "./classify": "./src/classify.ts",
-    "./ds-rules": "./src/ds-rules.ts"
+    "./ds-rules": "./src/ds-rules.ts",
+    "./labels": "./src/labels.ts"
   },
   "scripts": {
     "typecheck": "tsc -p tsconfig.json",

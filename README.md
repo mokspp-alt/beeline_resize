@@ -49,8 +49,18 @@ npm run dev:backend
 1. Соберите плагин: `npm run build` (или `npm run dev:plugin` для пересборки при изменениях).
 2. В Figma Desktop: **Plugins → Development → Import plugin from manifest…** → выберите `packages/plugin/manifest.json`.
 3. Откройте файл, в котором включены библиотеки Carnica (**Assets → Libraries**), и запустите **Plugins → Development → Beeline Resize**.
+4. Во вкладке «Настройки» введите командный токен (`PLUGIN_TOKEN` бэкенда).
+5. Выделите один фрейм-исходник, выберите размеры (группы, наборы, свои размеры) и нажмите «Адаптировать». Результаты появятся справа от исходника; отчёт — в окне плагина, клик по пункту выделяет слой.
 
 Адрес бэкенда задаётся при сборке переменной `BACKEND_URL` (по умолчанию `http://localhost:8787`). Домен бэкенда должен быть указан в `packages/plugin/manifest.json` → `networkAccess.allowedDomains`.
+
+### Конфигурация Carnica
+
+`config/design-system.json` описывает шесть библиотек Carnica и правила адаптации (моды переменных, варианты, замены WEB↔APP, токены). Черновик собирается во вкладке плагина «Дизайн-система» → «Сканировать дизайн-систему» (нужен `FIGMA_TOKEN` на бэкенде): администратор проверяет его, подтверждает замены (`confirmed: true`) и коммитит файл. Бэкенд перечитывает конфиг без перезапуска.
+
+### Ручная проверка
+
+Чек-лист проверки в Figma Desktop: [docs/manual-check.md](docs/manual-check.md).
 
 ### Docker
 

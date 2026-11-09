@@ -161,3 +161,12 @@ export function tokenFor(
 }
 
 export { modeForPreset };
+
+/** Текстовый стиль ДС с тем же кеглем (и семейством, если известно). */
+export function textStyleFor(ds: DesignSystemConfig | undefined, fontSize: number, family?: string) {
+  const styles = ds?.textStyles ?? [];
+  return (
+    styles.find((s) => s.fontSize === fontSize && (!family || !s.fontFamily || s.fontFamily === family)) ??
+    styles.find((s) => s.fontSize === fontSize)
+  );
+}

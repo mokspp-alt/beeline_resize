@@ -1,0 +1,48 @@
+{
+  "designSystem": "Carnica",
+  "libraries": {
+    "colors": {
+      "name": "01_Carnica-colors-2.0",
+      "fileKey": "abOiwE5nz8PJ41TVWLQAYr",
+      "url": "https://www.figma.com/design/abOiwE5nz8PJ41TVWLQAYr/01_Carnica-colors-2.0"
+    },
+    "typography": {
+      "name": "02_Carnica-typography",
+      "fileKey": "slIC6wNF9z7bmVRozl2Sc9",
+      "url": "https://www.figma.com/design/slIC6wNF9z7bmVRozl2Sc9/02_Carnica-typography"
+    },
+    "sizes": {
+      "name": "03_Carnica-sizes",
+      "fileKey": "9xzHSCOejO5SJmdkLNJX0W",
+      "url": "https://www.figma.com/design/9xzHSCOejO5SJmdkLNJX0W/03_Carnica-sizes"
+    },
+    "icons": {
+      "name": "04_Carnica-icons",
+      "fileKey": "agbEZYd5CsJcRDWnFlkgFe",
+      "url": "https://www.figma.com/design/agbEZYd5CsJcRDWnFlkgFe/04_Carnica-icons"
+    },
+    "ui-kit-app": {
+      "name": "05_Carnica-UI-kit-APP",
+      "fileKey": "jiVAy6oXsM7sxlhYetiZ50",
+      "url": "https://www.figma.com/design/jiVAy6oXsM7sxlhYetiZ50/05_Carnica-UI-kit-APP"
+    },
+    "ui-kit-web": {
+      "name": "06_Carnica-UI-kit-WEB",
+      "fileKey": "et3X0ja6o9iITvuJZA1k5C",
+      "url": "https://www.figma.com/design/et3X0ja6o9iITvuJZA1k5C/06_Carnica-UI-kit-WEB"
+    }
+  },
+  "kitByMode": {
+    "web": "ui-kit-web",
+    "app": "ui-kit-app",
+    "banner": "ui-kit-web"
+  },
+  "collections": {},
+  "variants": [],
+  "substitutions": [],
+  "minFontSize": {
+    "web": 12,
+    "app": 12,
+    "banner": 10
+  }
+}
